@@ -14,7 +14,7 @@ angular.module("umbraco").controller("Our.Umbraco.DocTypeGridEditor.GridEditors.
 
         var overlayOptions = {
             view: umbRequestHelper.convertVirtualToAbsolutePath(
-                "~/App_Plugins/DocTypeGridEditor/Views/doctypegrideditor.dialog.html"),
+                "/App_Plugins/DocTypeGridEditor/Views/doctypegrideditor.dialog.html"),
             model: {},
             titles: {
                 insertItem: "Click to insert item",
