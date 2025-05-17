@@ -27,6 +27,7 @@ angular.module("umbraco").controller("Our.Umbraco.DocTypeGridEditor.GridEditors.
         };
 
         $scope.icon = "icon-item-arrangement";
+        $scope.currentPageId = editorState.current.id;
 
         // init cached content types if it doesnt exist.
         if (!$rootScope.dtgeContentTypes) $rootScope.dtgeContentTypes = {};
@@ -153,8 +154,11 @@ angular.module("umbraco").controller("Our.Umbraco.DocTypeGridEditor.GridEditors.
             if ($scope.control.editor.config && "enablePreview" in $scope.control.editor.config && $scope.control.editor.config.enablePreview) {
                 var activeVariant = editorState.current.variants?.find(v => v.active);
                 var culture = activeVariant?.language?.culture;
-                dtgeResources.getEditorMarkupForDocTypePartial(editorState.current.id, model.id,
-                    $scope.control.editor.alias, model.dtgeContentTypeAlias, model.value,
+                dtgeResources.getEditorMarkupForDocTypePartial(
+                    $scope.currentPageId,
+                    model.id,
+                    $scope.control.editor.alias,
+                    model.dtgeContentTypeAlias, model.value,
                     $scope.control.editor.config.viewPath,
                     $scope.control.editor.config.previewViewPath,
                     !!editorState.current.publishDate, culture)
