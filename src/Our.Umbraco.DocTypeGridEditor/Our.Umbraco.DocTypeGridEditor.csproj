@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ContentTargetFolders>.</ContentTargetFolders>
 	    <StaticWebAssetBasePath>App_Plugins/DocTypeGridEditor</StaticWebAssetBasePath>
 	    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
@@ -11,16 +11,20 @@
         <Product>Our.Umbraco.DocTypeGridEditor</Product>
         <PackageTags>umbraco plugin package</PackageTags>
 
-        <Version>12.1.0-blackknight</Version>
+        <Version>13.0.0-beta3</Version>
+        <AssemblyVersion>13.0.0</AssemblyVersion>
+        <FileVersion>13.0.0</FileVersion>
         <Authors>Søren Kottal</Authors>
         <Company></Company>
 
         <AssemblyName>Our.Umbraco.DocTypeGridEditor</AssemblyName>
         <RootNamespace>Our.Umbraco.DocTypeGridEditor</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <LangVersion>default</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Umbraco.Cms.Web.Website" Version="12.3.7" />
-        <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="12.3.7" />
+        <PackageReference Include="Umbraco.Cms.Web.Website" Version="13.8.1" />
+        <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="13.8.1" />
     </ItemGroup>
 </Project>
