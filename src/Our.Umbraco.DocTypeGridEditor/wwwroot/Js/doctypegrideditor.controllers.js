@@ -254,10 +254,17 @@ angular.module("umbraco").controller("Our.Umbraco.DocTypeGridEditor.Dialogs.DocT
             vm.blueprintConfig = blueprintConfig;
             vm.saveButtonState = "init";
 
+            $scope.currentPageId = editorState.current.id;
+
             function cleanup() {
                 if ($scope.model.node && $scope.model.node.id > 0) {
-                    // delete any temporary blueprints used for validation
-                    dtgeResources.deleteBlueprint($scope.model.node.id);
+                    try {
+                        // delete any temporary blueprints used for validation
+                        dtgeResources.deleteBlueprint($scope.model.node.id);
+                    }
+                    catch (error) {
+                        console.warn(error);
+                    }
 
                     // set current node id, so subsequent deletes, giving 404 errors is avoided
                     $scope.model.node.id = 0;
