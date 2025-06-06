@@ -15,7 +15,9 @@ angular.module("umbraco").controller("Our.Umbraco.DocTypeGridEditor.GridEditors.
         var overlayOptions = {
             view: umbRequestHelper.convertVirtualToAbsolutePath(
                 "/App_Plugins/DocTypeGridEditor/Views/doctypegrideditor.dialog.html"),
-            model: {},
+            model: {
+                currentPageId: editorState.current.id
+            },
             titles: {
                 insertItem: "Click to insert item",
                 editItem: "Edit item",
@@ -91,6 +93,7 @@ angular.module("umbraco").controller("Our.Umbraco.DocTypeGridEditor.GridEditors.
             overlayOptions.dialogData = {
                 docTypeAlias: $scope.control.value.dtgeContentTypeAlias,
                 value: $scope.control.value.value,
+                currentPageId: $scope.currentPageId,
                 id: $scope.control.value.id
             };
             overlayOptions.close = function () {
@@ -254,7 +257,7 @@ angular.module("umbraco").controller("Our.Umbraco.DocTypeGridEditor.Dialogs.DocT
             vm.blueprintConfig = blueprintConfig;
             vm.saveButtonState = "init";
 
-            $scope.currentPageId = editorState.current.id;
+            // console.log($scope.model);
 
             function cleanup() {
                 if ($scope.model.node && $scope.model.node.id > 0) {
